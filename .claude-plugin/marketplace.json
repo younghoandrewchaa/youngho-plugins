@@ -1,0 +1,18 @@
+{
+  "name": "create-pull-request-dev",
+  "description": "Development marketplace for create-pull-request skill",
+  "owner": {
+    "name": "Youngho Chaa"
+  },
+  "plugins": [
+    {
+      "name": "create-pull-request",
+      "description": "A skill for creating GitHub pull requests: asks for intent, analyses code changes, applies repo PR templates, and learns from corrections over time",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Youngho Chaa"
+      }
+    }
+  ]
+}
