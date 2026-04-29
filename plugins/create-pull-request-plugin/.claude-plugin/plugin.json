@@ -1,7 +1,7 @@
 {
   "name": "create-pull-request",
   "description": "A skill for creating GitHub pull requests: asks for intent, analyses code changes, applies repo PR templates, and learns from corrections over time",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Youngho Chaa"
   },
