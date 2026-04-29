@@ -1,5 +1,9 @@
 # Release Notes
 
+## v1.1.0 (2026-04-29)
+
+- `polish-this` skill: British English Language Coach — rewrites your text into natural UK English, highlights useful idioms and phrasal verbs, and explains every correction made
+
 ## v1.0.0 (2026-04-29)
 
 Initial release.

@@ -1,22 +1,28 @@
-# create-pull-request
+# youngho-plugins
 
-A Claude Code plugin that creates GitHub pull requests the right way: asks for your intent, analyses the code changes, fills in the repo's PR template, and gets smarter over time by learning from your corrections.
+A collection of Claude Code plugins.
 
-## What it does
+---
+
+## create-pull-request
+
+Creates GitHub pull requests the right way: asks for your intent, analyses the code changes, fills in the repo's PR template, and gets smarter over time by learning from your corrections.
+
+### What it does
 
 1. **Asks for purpose** — one question: what is this PR for?
 2. **Analyses the diff** — reads every changed file and commit message to add concrete detail
 3. **Fills the PR template** — uses your repo's `.github/pull_request_template.md` if it exists
-4. **Polishes for clarity** — reviews the draft to correct grammar, refine technical terminology, and ensure a professional tone (perfect for non-native speakers).
+4. **Polishes for clarity** — reviews the draft to correct grammar, refine technical terminology, and ensure a professional tone
 5. **Learns from corrections** — stores a per-repo history in `.claude/pr-history/history.json` and applies your style preferences to future drafts
 6. **Creates the PR** — runs `gh pr create` with the approved description
 
-## Requirements
+### Requirements
 
 - [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated
 - Claude Code
 
-## Installation
+### Installation
 
 ```
 /plugin marketplace add younghoandrewchaa/youngho-plugins
@@ -24,21 +30,40 @@ A Claude Code plugin that creates GitHub pull requests the right way: asks for y
 /reload-plugins
 ```
 
-## Usage
-
-Just tell Claude to create a PR:
+### Usage
 
 > "create a PR"
 > "open a pull request"
 > "make a PR for this branch"
 
-Claude will invoke the skill automatically. It will ask you one question (the purpose), show you a draft, and create the PR once you approve.
+---
 
-## How learning works
+## polish-this
 
-After each PR, the skill saves the final description and any corrections you made to `.claude/pr-history/history.json` in your repo. On the next PR, it reads those corrections and applies the inferred style rules — so if you always trim the "anything else" section down to just the non-obvious things, it will do that from the start next time.
+A British English Language Coach. Paste any text and get a natural, fluent rewrite as a native UK speaker would write it — along with a vocabulary spotlight and a plain-English explanation of every correction made.
 
-The history file is repo-local and gitignored by default (add `.claude/` to your `.gitignore`).
+### What it does
+
+1. **Polished Version** — rewrites your text into natural British English (professional or social register)
+2. **Vocabulary Spotlight** — highlights useful idioms, phrasal verbs, and distinctly British expressions used in the rewrite
+3. **The 'Why'** — explains every change: grammar fixes, tone improvements, and British-specific spelling or vocabulary choices
+
+### Installation
+
+```
+/plugin marketplace add younghoandrewchaa/youngho-plugins
+/plugin install polish-this@youngho-plugins
+/reload-plugins
+```
+
+### Usage
+
+> "Polish this: [your text]"
+> "Make this sound more British"
+> "Is this natural British English?"
+> "How would a British person say this?"
+
+---
 
 ## License
 
