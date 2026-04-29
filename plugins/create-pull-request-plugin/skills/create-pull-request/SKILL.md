@@ -65,7 +65,7 @@ Combine:
 3. **PR template** — populate every section with real content; no placeholders
 4. **Lessons from history** — apply style and content rules derived in Step 2
 
-**If a template exists:** Fill every section. Infer answers from the diff — don't leave anything blank.
+**If a template exists:** Fill every section. Infer answers from the diff — don't leave anything blank. Copy every heading from the template character-for-character — never rephrase, reorder, or remove headings. Only the body text beneath each heading may be written or changed.
 
 **If no template:**
 ```
@@ -156,6 +156,8 @@ Append to `.claude/pr-history/history.json` (read first, never overwrite):
 
 **Placeholder text in template sections** — Infer from the diff. A blank section is never acceptable.
 
+**Altering template headings** — Copy headings exactly as they appear in the template. Changing even one word can break CI checks that match on heading text.
+
 **Rewriting the user's words** — Their phrasing carries intent. Preserve it; add detail around it.
 
 **Overwriting history** — Read the JSON array first, append, write back. Never truncate.
@@ -169,6 +171,7 @@ Append to `.claude/pr-history/history.json` (read first, never overwrite):
 - Leave template sections as placeholder text
 - Overwrite `.claude/pr-history/history.json`
 - List obvious changes in "Anything else reviewers should know"
+- Alter template headings in any way — not the wording, not the capitalisation, not the order
 
 **Always:**
 - Read history before drafting
