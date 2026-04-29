@@ -7,8 +7,9 @@ A Claude Code plugin that creates GitHub pull requests the right way: asks for y
 1. **Asks for purpose** — one question: what is this PR for?
 2. **Analyses the diff** — reads every changed file and commit message to add concrete detail
 3. **Fills the PR template** — uses your repo's `.github/pull_request_template.md` if it exists
-4. **Learns from corrections** — stores a per-repo history in `.claude/pr-history/history.json` and applies your style preferences to future drafts
-5. **Creates the PR** — runs `gh pr create` with the approved description
+4. **Polishes for clarity** — reviews the draft to correct grammar, refine technical terminology, and ensure a professional tone (perfect for non-native speakers).
+5. **Learns from corrections** — stores a per-repo history in `.claude/pr-history/history.json` and applies your style preferences to future drafts
+6. **Creates the PR** — runs `gh pr create` with the approved description
 
 ## Requirements
 
