@@ -21,6 +21,7 @@ A Claude Code plugin that creates GitHub pull requests the right way: asks for y
 ```
 /plugin marketplace add younghoandrewchaa/youngho-plugins
 /plugin install create-pull-request@youngho-plugins
+/reload-plugins
 ```
 
 ## Usage
