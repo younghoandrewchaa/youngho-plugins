@@ -8,7 +8,15 @@
     {
       "name": "create-pull-request",
       "description": "A skill for creating GitHub pull requests: asks for intent, analyses code changes, applies repo PR templates, and learns from corrections over time",
-      "source": "./",
+      "source": "./plugins/create-pull-request-plugin",
+      "author": {
+        "name": "Youngho Chaa"
+      }
+    },
+    {
+      "name": "polish-this",
+      "description": "A British English Language Coach: rewrites your text into natural UK English, highlights useful idioms and phrasal verbs, and explains every correction made",
+      "source": "./plugins/polish-this-plugin",
       "author": {
         "name": "Youngho Chaa"
       }
