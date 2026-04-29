@@ -1,6 +1,6 @@
 {
-  "name": "create-pull-request",
-  "description": "Marketplace for the create-pull-request skill",
+  "name": "youngho-plugins",
+  "description": "Youngho's Claude Code plugins",
   "owner": {
     "name": "Youngho Chaa"
   },
