@@ -1,4 +1,4 @@
-# youngho-plugins
+# yh-plugins
 
 A collection of Claude Code plugins.
 
@@ -25,8 +25,8 @@ Creates GitHub pull requests the right way: asks for your intent, analyses the c
 ### Installation
 
 ```
-/plugin marketplace add younghoandrewchaa/youngho-plugins
-/plugin install create-pull-request@youngho-plugins
+/plugin marketplace add younghoandrewchaa/yh-plugins
+/plugin install create-pull-request@yh-plugins
 /reload-plugins
 ```
 
@@ -51,8 +51,8 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 ### Installation
 
 ```
-/plugin marketplace add younghoandrewchaa/youngho-plugins
-/plugin install polish-this@youngho-plugins
+/plugin marketplace add younghoandrewchaa/yh-plugins
+/plugin install polish-this@yh-plugins
 /reload-plugins
 ```
 
@@ -79,8 +79,8 @@ Review the current conversation, summarise learning points, and quiz yourself to
 ### Installation
 
 ```
-/plugin marketplace add younghoandrewchaa/youngho-plugins
-/plugin install learning-quiz@youngho-plugins
+/plugin marketplace add younghoandrewchaa/yh-plugins
+/plugin install learning-quiz@yh-plugins
 /reload-plugins
 ```
 
