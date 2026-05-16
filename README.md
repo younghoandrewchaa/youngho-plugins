@@ -1,4 +1,4 @@
-# youngho-plugins
+# yh-plugins
 
 A collection of Claude Code plugins.
 
