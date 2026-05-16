@@ -20,6 +20,14 @@
       "author": {
         "name": "Youngho Chaa"
       }
+    },
+    {
+      "name": "learning-quiz",
+      "description": "Review the current conversation, summarise learning points, and quiz the user with a mix of multiple choice and open-ended questions to verify understanding",
+      "source": "./plugins/learning-quiz-plugin",
+      "author": {
+        "name": "Youngho Chaa"
+      }
     }
   ]
 }

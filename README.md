@@ -65,6 +65,33 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 
 ---
 
+## learning-quiz
+
+Review the current conversation, summarise learning points, and quiz yourself to verify understanding. Extracts what you learned during a session, lets you confirm the list, then runs an interactive quiz with a mix of multiple choice and open-ended questions.
+
+### What it does
+
+1. **Extracts learning points** — scans the conversation for technical concepts, architectural decisions, gotchas, tools, and domain knowledge
+2. **Lets you confirm** — presents a numbered list grouped by topic; you can remove, add, or approve before the quiz starts
+3. **Quizzes you** — generates 1-2 questions per learning point, one at a time, mixing multiple choice (factual recall) and open-ended (conceptual understanding)
+4. **Gives feedback** — immediate feedback after each answer, then a final score with strong areas and topics to revisit
+
+### Installation
+
+```
+/plugin marketplace add younghoandrewchaa/youngho-plugins
+/plugin install learning-quiz@youngho-plugins
+/reload-plugins
+```
+
+### Usage
+
+> "quiz me on what I learned"
+> "review this session"
+> "test my understanding"
+
+---
+
 ## License
 
 MIT
