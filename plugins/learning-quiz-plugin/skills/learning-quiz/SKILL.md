@@ -52,7 +52,7 @@ Generate 1-2 questions per confirmed learning point. Aim for a total of 5-15 que
 Use a mix of question types to test different levels of understanding:
 
 **Multiple Choice (for factual recall):**
-Use the `AskUserQuestion` tool to present these. Include 3-4 options with one correct answer. Make distractors plausible — they should reflect common misconceptions, not obviously wrong answers.
+Use the `AskUserQuestion` tool to present these. Include 3-4 options with one correct answer. **Randomise the position of the correct answer** — do not always place it first or in any predictable position. Vary it across questions (sometimes 1st, sometimes 2nd, 3rd, or 4th). Make distractors plausible — they should reflect common misconceptions, not obviously wrong answers.
 
 Example triggers for multiple choice:
 - "Which method/flag/option does X use?"
