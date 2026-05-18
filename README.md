@@ -98,14 +98,14 @@ Plan and reflect on your goals for today, tomorrow, this week, and this month. Y
 
 This plugin has two skills:
 
-### `/my-day:plan`
+### `/my-day:my-plan`
 
 1. **Asks about your goals** — today, tomorrow, this week, this month (skip any you like)
 2. **Surfaces past learnings** — scans your previous reflections for advice relevant to today's goals
 3. **Polishes into British English** — rewrites your answers into natural, fluent UK English
 4. **Saves to a file** — stores the plan as a dated markdown file in your chosen folder
 
-### `/my-day:reflect`
+### `/my-day:my-reflect`
 
 1. **Reads your latest plan** — shows what you set out to do
 2. **Asks how it went** — three questions: how did it go, what did you learn, was it what you expected
@@ -124,8 +124,8 @@ On first use, the skill asks where to save files and remembers your choice.
 
 ### Usage
 
-> "/my-day:plan" — plan your day, week, or month
-> "/my-day:reflect" — reflect on how it went
+> "/my-day:my-plan" — plan your day, week, or month
+> "/my-day:my-reflect" — reflect on how it went
 
 ---
 

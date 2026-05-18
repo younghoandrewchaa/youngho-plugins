@@ -1,5 +1,5 @@
 ---
-name: reflect
+name: my-reflect
 description: Reflect on your most recent plan — review what you set out to do, capture how it went, what you learned, and whether the result matched expectations. Polishes reflections into natural British English. Triggers on reflect, end of day review, daily review, weekly review, monthly review, how did it go, what did I learn.
 ---
 
@@ -7,7 +7,7 @@ description: Reflect on your most recent plan — review what you set out to do,
 
 Review what you planned and reflect on how it went, with your words polished into natural British English.
 
-**Announce at start:** "Using my-day:reflect to review your goals."
+**Announce at start:** "Using my-day:my-reflect to review your goals."
 
 ## Step 0: Resolve Storage Folder
 
@@ -30,7 +30,7 @@ Read the most recent plan file from the storage folder (sort by filename, which 
 
 If no plan file exists, tell the user:
 
-> "I couldn't find any plan files. Would you like to create one first with `/my-day:plan`?"
+> "I couldn't find any plan files. Would you like to create one first with `/my-day:my-plan`?"
 
 Then stop.
 

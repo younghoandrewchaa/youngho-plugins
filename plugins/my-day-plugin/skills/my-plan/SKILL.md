@@ -1,5 +1,5 @@
 ---
-name: plan
+name: my-plan
 description: Plan what you want to accomplish today, tomorrow, this week, and this month. Polishes your goals into natural British English and surfaces relevant past learnings as advice. Triggers on plan my day, daily plan, what should I do today, weekly plan, monthly plan, set goals.
 ---
 
@@ -7,7 +7,7 @@ description: Plan what you want to accomplish today, tomorrow, this week, and th
 
 Plan what you want to accomplish, with your words polished into natural British English.
 
-**Announce at start:** "Using my-day:plan to capture your goals."
+**Announce at start:** "Using my-day:my-plan to capture your goals."
 
 ## Step 0: Resolve Storage Folder
 
