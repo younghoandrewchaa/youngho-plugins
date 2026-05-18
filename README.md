@@ -67,14 +67,21 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 
 ## learning-quiz
 
-Review the current conversation, summarise learning points, and quiz yourself to verify understanding. Extracts what you learned during a session, lets you confirm the list, then runs an interactive quiz with a mix of multiple choice and open-ended questions.
+Summarise learning points and quiz yourself to verify understanding. Works from the current conversation or any content you provide — a block of text, a URL, or a topic. Lets you confirm the list, then runs an interactive quiz with a mix of multiple choice and open-ended questions.
 
 ### What it does
 
-1. **Extracts learning points** — scans the conversation for technical concepts, architectural decisions, gotchas, tools, and domain knowledge
+1. **Extracts learning points** — from the conversation *or* content you paste/link; covers technical concepts, architectural decisions, gotchas, tools, and domain knowledge
 2. **Lets you confirm** — presents a numbered list grouped by topic; you can remove, add, or approve before the quiz starts
 3. **Quizzes you** — generates 1-2 questions per learning point, one at a time, mixing multiple choice (factual recall) and open-ended (conceptual understanding)
 4. **Gives feedback** — immediate feedback after each answer, then a final score with strong areas and topics to revisit
+
+### Two modes
+
+| Invocation | Source |
+|---|---|
+| `/learning-quiz` | Scans the current conversation |
+| `/learning-quiz <text, URL, or topic>` | Uses the provided content instead |
 
 ### Installation
 
@@ -89,6 +96,8 @@ Review the current conversation, summarise learning points, and quiz yourself to
 > "quiz me on what I learned"
 > "review this session"
 > "test my understanding"
+> "/learning-quiz https://example.com/article"
+> "/learning-quiz [pasted notes or text]"
 
 ---
 
