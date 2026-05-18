@@ -34,12 +34,12 @@ cat .github/pull_request_template.md 2>/dev/null || \
 
 ```bash
 # Lessons learned from past PRs in this repo
-cat .claude/pr-history/history.json 2>/dev/null || echo "[]"
+cat "$(git rev-parse --git-dir)/claude-pr-history/history.json" 2>/dev/null || echo "[]"
 ```
 
 ## Step 2: Extract Lessons from History
 
-Parse `.claude/pr-history/history.json`. From each entry's `corrections` array, derive style rules:
+Parse `$(git rev-parse --git-dir)/claude-pr-history/history.json`. From each entry's `corrections` array, derive style rules:
 
 - How the user phrases the "why" (business impact vs implementation detail)
 - Sections they always trim or expand
@@ -114,10 +114,10 @@ Add `--draft` if requested. Output the PR URL when done.
 ## Step 7: Save to History
 
 ```bash
-mkdir -p .claude/pr-history
+mkdir -p "$(git rev-parse --git-dir)/claude-pr-history"
 ```
 
-Append to `.claude/pr-history/history.json` (read first, never overwrite):
+Append to `$(git rev-parse --git-dir)/claude-pr-history/history.json` (read first, never overwrite):
 
 ```json
 {
@@ -161,6 +161,8 @@ Append to `.claude/pr-history/history.json` (read first, never overwrite):
 **Rewriting the user's words** — Their phrasing carries intent. Preserve it; add detail around it.
 
 **Overwriting history** — Read the JSON array first, append, write back. Never truncate.
+
+**Wrong history path** — Always resolve the path with `git rev-parse --git-dir` at runtime; never hardcode `.git/`.
 
 **"Anything else" section as a change log** — Only include things that are genuinely non-obvious or easy to miss. Structural changes visible in the diff don't belong there.
 
