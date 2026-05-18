@@ -5,11 +5,18 @@ description: Review the current conversation, summarise learning points, and qui
 
 # Learning Quiz
 
-Review the current conversation to extract learning points, then quiz the user to deepen and verify understanding.
+Review content to extract learning points, then quiz the user to deepen and verify understanding.
+
+## Input Modes
+
+This skill supports two modes based on whether the user provides additional text:
+
+- **No additional text** (e.g. just `/learning-quiz`): Scan the current conversation context to extract learning points from what was discussed in this session.
+- **With content** (e.g. `/learning-quiz <pasted text, URL, or topic>`): Use the provided content as the source material instead of the conversation context. Read, fetch, or interpret the provided content first, then extract learning points from it.
 
 ## Phase 1: Extract & Confirm Learning Points
 
-Scan the entire conversation context and extract learning points. A learning point is anything the user likely learned or should retain:
+Based on the input mode, scan either the conversation context or the provided content and extract learning points. A learning point is anything the user likely learned or should retain:
 
 - **Technical concepts** — new APIs, language features, framework patterns
 - **Architectural decisions** — why a particular approach was chosen over alternatives
@@ -99,4 +106,6 @@ Present a summary:
 - **One question at a time.** Never batch multiple questions.
 - **Be encouraging, not patronising.** Treat the user as a peer checking their understanding.
 - **Keep feedback concise.** One or two sentences per answer, not a lecture.
-- **If the conversation has no meaningful learning points** (e.g. it was just a quick file read), say so honestly instead of fabricating trivial questions.
+- **If the source has no meaningful learning points** (e.g. conversation was just a quick file read, or the provided content is too brief), say so honestly instead of fabricating trivial questions.
+- **When content is provided**, focus exclusively on that content for learning points — do not mix in unrelated conversation context.
+- **When content is a URL**, fetch and read it before extracting learning points.
