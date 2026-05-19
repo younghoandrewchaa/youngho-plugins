@@ -26,42 +26,41 @@ Based on the input mode, scan either the conversation context or the provided co
 
 ### Presentation
 
-Generate a styled HTML page listing the learning points and open it in the user's browser. Follow these five steps exactly — do not skip any.
+Generate a styled HTML page listing the learning points and open it in the user's browser. Follow these three steps exactly — do not skip any.
 
-**Step 0 — Detect D2**
+**Step 1 — Generate learning points as markdown**
 
-Use the Bash tool to run:
+Compose the extracted learning points as a markdown document. This is an internal intermediate step — do not write this to a file. Use this structure:
 
-```bash
-which d2 2>/dev/null
+```markdown
+# Learning Points — {DATE}
+
+## {TOPIC_NAME}
+
+**{N}. {POINT_TITLE}**
+{POINT_BODY}
+
+**{N+1}. {POINT_TITLE}**
+{POINT_BODY}
+
+## {NEXT_TOPIC_NAME}
+
+**{N+2}. {POINT_TITLE}**
+{POINT_BODY}
 ```
 
-If it returns a path (e.g. `/usr/local/bin/d2`), D2 is available — use it for diagrams. If it returns nothing, fall back to Mermaid. This choice determines the `{DIAGRAM_SCRIPTS}` block, the diagram blocks, and whether `{D2_HINT}` is shown.
+Number learning points globally (1, 2, 3 … across all topics, not restarting per topic). Use `**bold**` for key terms within the body text. This markdown is the content source for the HTML in the next step.
 
-**Step 1 — Build the HTML**
+**Step 2 — Build HTML from the markdown and write to file**
 
-Generate a complete, self-contained HTML file using the template below. Substitute real values for all `{PLACEHOLDER}` tokens:
+Convert the markdown learning points into a complete, self-contained HTML file using the template below. Substitute real values for all `{PLACEHOLDER}` tokens:
 
 - `{DATE}` — today's date (e.g. "19 May 2026")
-- `{DIAGRAM_SCRIPTS}` — conditional block; see **Diagram scripts** below the template
 - `{TOPIC_COLOUR}` — next colour from the palette; assign in order and restart from `#4f86c6` on the sixth topic: `#4f86c6`, `#f0a500`, `#2ecc71`, `#e74c3c`, `#9b59b6`
 - `{TOPIC_NAME}` — the topic heading text
-- `{N}` — global learning point number (1, 2, 3 … across all topics, not restarting per topic)
+- `{N}` — global learning point number
 - `{POINT_TITLE}` — the learning point title
 - `{POINT_BODY}` — the explanation; use `<strong>` for key terms, and `<span style="color:HEX;font-weight:600">` (substituting the same hex colour already assigned to this topic) for jargon
-- `{DIAGRAM_LABEL}` — short description of what the diagram shows (only in optional diagram block)
-- `{D2_HINT}` — conditional element; see **D2 hint** below the template
-
-For each topic, assess whether a diagram would genuinely aid understanding. If yes, add the **Optional diagram block** (shown after the template) directly after the `.points` div for that topic. If no topic benefits from a diagram, omit diagram blocks entirely.
-
-Diagram type selection guide:
-
-| Topic type | Mermaid type | D2 equivalent |
-|---|---|---|
-| Process / step sequence | `flowchart TD` | `direction: down` with `->` edges |
-| Component relationships / architecture | `graph LR` | `direction: right` with `->` edges |
-| Request / response flows | `sequenceDiagram` | `shape: sequence_diagram` (top-level property) |
-| Concept hierarchy or groupings | `mindmap` | nested containers with `{}` |
 
 **HTML template** (fill in all `{PLACEHOLDER}` tokens with real content before writing):
 
@@ -72,7 +71,6 @@ Diagram type selection guide:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Learning Points — {DATE}</title>
-  {DIAGRAM_SCRIPTS}
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;line-height:1.6}
@@ -88,12 +86,6 @@ Diagram type selection guide:
     .point-content{flex:1;min-width:0}
     .point-title{font-weight:700;display:block;margin-bottom:.2rem}
     .point-body{color:#555;font-size:.95rem}
-    .diagram{background:#fff;border-radius:10px;padding:1.5rem;margin-top:1rem;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-    .diagram-label{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#999;margin-bottom:.75rem}
-    .diagram-svg svg{max-width:100%;height:auto;display:block}
-    pre code.hljs{border-radius:8px;font-size:.88rem}
-    .d2-hint{font-size:.8rem;color:#999;text-align:center;padding:1.5rem 0 2rem;border-top:1px solid #e0e0e0;margin-top:1rem}
-    .d2-hint a{color:#4f86c6}
   </style>
 </head>
 <body>
@@ -116,112 +108,14 @@ Diagram type selection guide:
       </div>
     </div>
   </section>
-  {D2_HINT}
 </main>
 </body>
 </html>
 ```
 
-**Diagram scripts** (`{DIAGRAM_SCRIPTS}`):
-
-*If D2 is available* — highlight.js only (Mermaid not needed):
-
-```html
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>document.addEventListener('DOMContentLoaded',()=>hljs.highlightAll());</script>
-```
-
-*If Mermaid (D2 not available)* — include Mermaid CDN plus highlight.js:
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script>document.addEventListener('DOMContentLoaded',()=>{mermaid.initialize({startOnLoad:true,theme:'base'});hljs.highlightAll();});</script>
-```
-
-**D2 hint** (`{D2_HINT}`):
-
-*If D2 is available* — omit `{D2_HINT}` entirely (no element).
-
-*If Mermaid (D2 not available)* — add this just before `</main>`:
-
-```html
-<p class="d2-hint">💡 Install <a href="https://d2lang.com" target="_blank">D2</a> for higher-quality diagram rendering.</p>
-```
-
-**Optional diagram block** — when a topic benefits from a diagram, insert this directly after the `.points` div for that topic, before `</section>`.
-
-*If D2 is available* — pre-render each diagram before writing the HTML:
-
-1. Write the D2 definition to `/tmp/lq-diag-N.d2` (unique index N per diagram) using the Write tool. Use the appropriate D2 syntax for the diagram type:
-
-   *Flowchart (process / step sequence):*
-   ```d2
-   direction: down
-   A: Step name
-   B: Next step
-   C: Final step
-   A -> B -> C
-   ```
-
-   *Graph (component relationships / architecture):*
-   ```d2
-   direction: right
-   Frontend -> API -> Database
-   ```
-
-   *Sequence diagram (request / response flows):*
-   ```d2
-   shape: sequence_diagram
-   Actor1 -> Actor2: Message text
-   Actor2 -> Actor1: Reply text
-   ```
-
-   *Nested containers (concept hierarchy or groupings):*
-   ```d2
-   Root: Main topic {
-     A: Subtopic 1
-     B: Subtopic 2 {
-       B1: Detail
-     }
-   }
-   ```
-
-2. Render it using the Bash tool:
-   ```bash
-   d2 /tmp/lq-diag-N.d2 /tmp/lq-diag-N.svg 2>/dev/null
-   ```
-
-3. Read `/tmp/lq-diag-N.svg` with the Read tool and copy the entire SVG content.
-
-4. Embed inline in the HTML:
-   ```html
-   <div class="diagram">
-     <div class="diagram-label">{DIAGRAM_LABEL}</div>
-     <div class="diagram-svg">
-       [PASTE FULL RAW SVG CONTENT — the entire <svg>...</svg> element]
-     </div>
-   </div>
-   ```
-
-*If Mermaid (D2 not available)* — use the Mermaid block:
-
-```html
-<div class="diagram">
-  <div class="diagram-label">{DIAGRAM_LABEL}</div>
-  <div class="mermaid">
-{MERMAID_DIAGRAM_CODE}
-  </div>
-</div>
-```
-
-**Step 2 — Write the file**
-
 Use the Write tool to write the completed HTML to `/tmp/learning-quiz.html`.
 
-**Step 3 — Open in browser**
+**Step 3 — Open in browser and confirm**
 
 Use the Bash tool to run (macOS):
 
@@ -229,9 +123,7 @@ Use the Bash tool to run (macOS):
 open /tmp/learning-quiz.html
 ```
 
-**Step 4 — Confirm with the user**
-
-After the browser opens, use `AskUserQuestion` to let the user choose how to proceed:
+Then use `AskUserQuestion` to let the user choose how to proceed:
 
 - Option 1: **Start the quiz** — proceed with all listed learning points
 - Option 2: **Remove some** — "Tell me which numbers to remove (e.g. 3, 5)"
