@@ -1,7 +1,7 @@
 {
   "name": "learning-quiz",
   "description": "Review the current conversation, summarise learning points, and quiz the user with a mix of multiple choice and open-ended questions to verify understanding",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": {
     "name": "Youngho Chaa"
   },

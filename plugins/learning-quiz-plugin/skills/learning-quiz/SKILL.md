@@ -60,7 +60,7 @@ Use a mix of question types to test different levels of understanding:
 **Multiple Choice (for factual recall):**
 Use the `AskUserQuestion` tool to present these. Include 3-4 options with one correct answer. Make distractors plausible — they should reflect common misconceptions, not obviously wrong answers.
 
-**CRITICAL — Randomise the correct answer position.** Before building the options array, pick a random slot (1st, 2nd, 3rd, or 4th) for the correct answer. Use the current seconds value (`date +%S`) or another source of randomness to decide. Place the correct answer in that slot, then fill the remaining slots with distractors. The correct answer MUST NOT always be the first option — if it lands first on one question, it should land elsewhere on the next. Across a quiz, aim for roughly even distribution.
+**CRITICAL — Randomise the correct answer position.** Do NOT always place the correct answer as the first option. For each question, rotate the position: if the correct answer was 1st on question 1, put it 3rd on question 2, then 2nd on question 3, then 4th on question 4, and so on. Never place the correct answer in the same position for two consecutive questions. Do NOT use Bash or shell commands to generate randomness — just cycle through positions yourself.
 
 Example triggers for multiple choice:
 - "Which method/flag/option does X use?"
