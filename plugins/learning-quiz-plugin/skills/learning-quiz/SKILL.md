@@ -26,104 +26,20 @@ Based on the input mode, scan either the conversation context or the provided co
 
 ### Presentation
 
-Generate a styled HTML page listing the learning points and open it in the user's browser. Follow these three steps exactly — do not skip any.
+Group learning points by topic. Present them as a numbered list with brief explanations:
 
-**Step 1 — Generate learning points as markdown**
+```
+## Learning Points from This Session
 
-Compose the extracted learning points as a markdown document. This is an internal intermediate step — do not write this to a file. Use this structure:
+### Topic A
+1. **Point title** — one-sentence explanation
+2. **Point title** — one-sentence explanation
 
-```markdown
-# Learning Points — {DATE}
-
-## {TOPIC_NAME}
-
-**{N}. {POINT_TITLE}**
-{POINT_BODY}
-
-**{N+1}. {POINT_TITLE}**
-{POINT_BODY}
-
-## {NEXT_TOPIC_NAME}
-
-**{N+2}. {POINT_TITLE}**
-{POINT_BODY}
+### Topic B
+3. **Point title** — one-sentence explanation
 ```
 
-Number learning points globally (1, 2, 3 … across all topics, not restarting per topic). Use `**bold**` for key terms within the body text. This markdown is the content source for the HTML in the next step.
-
-**Step 2 — Build HTML from the markdown and write to file**
-
-Convert the markdown learning points into a complete, self-contained HTML file using the template below. Substitute real values for all `{PLACEHOLDER}` tokens:
-
-- `{DATE}` — today's date (e.g. "19 May 2026")
-- `{TOPIC_COLOUR}` — next colour from the palette; assign in order and restart from `#4f86c6` on the sixth topic: `#4f86c6`, `#f0a500`, `#2ecc71`, `#e74c3c`, `#9b59b6`
-- `{TOPIC_NAME}` — the topic heading text
-- `{N}` — global learning point number
-- `{POINT_TITLE}` — the learning point title
-- `{POINT_BODY}` — the explanation; use `<strong>` for key terms, and `<span style="color:HEX;font-weight:600">` (substituting the same hex colour already assigned to this topic) for jargon
-
-**HTML template** (fill in all `{PLACEHOLDER}` tokens with real content before writing):
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning Points — {DATE}</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;line-height:1.6}
-    header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);color:#fff;padding:2.5rem 2rem}
-    header h1{font-size:2rem;font-weight:700;margin-bottom:.25rem}
-    header p{opacity:.7;font-size:.9rem}
-    main{max-width:860px;margin:2rem auto;padding:0 1.5rem}
-    .topic{margin-bottom:2.5rem}
-    .topic-header{font-size:1.2rem;font-weight:700;margin-bottom:1rem;padding-bottom:.4rem;border-bottom:2px solid}
-    .points{display:flex;flex-direction:column;gap:.75rem}
-    .point{background:#fff;border-radius:10px;padding:1rem 1.25rem;box-shadow:0 1px 3px rgba(0,0,0,.08);display:flex;gap:1rem;border-left:4px solid}
-    .point-num{font-size:1.1rem;font-weight:700;min-width:1.5rem}
-    .point-content{flex:1;min-width:0}
-    .point-title{font-weight:700;display:block;margin-bottom:.2rem}
-    .point-body{color:#555;font-size:.95rem}
-  </style>
-</head>
-<body>
-<header>
-  <h1>Learning Points</h1>
-  <p>{DATE}</p>
-</header>
-<main>
-  <!-- Repeat this <section> block for each topic. Assign next palette colour to {TOPIC_COLOUR}. -->
-  <section class="topic">
-    <h2 class="topic-header" style="color:{TOPIC_COLOUR};border-bottom-color:{TOPIC_COLOUR}">{TOPIC_NAME}</h2>
-    <div class="points">
-      <!-- Repeat this .point div for each learning point in the topic. -->
-      <div class="point" style="border-left-color:{TOPIC_COLOUR}">
-        <span class="point-num" style="color:{TOPIC_COLOUR}">{N}</span>
-        <div class="point-content">
-          <span class="point-title">{POINT_TITLE}</span>
-          <span class="point-body">{POINT_BODY}</span>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-</body>
-</html>
-```
-
-Use the Write tool to write the completed HTML to `/tmp/learning-quiz.html`.
-
-**Step 3 — Open in browser and confirm**
-
-Use the Bash tool to run (macOS):
-
-```bash
-open /tmp/learning-quiz.html
-```
-
-Then use `AskUserQuestion` to let the user choose how to proceed:
+After presenting, use `AskUserQuestion` to let the user choose how to proceed:
 
 - Option 1: **Start the quiz** — proceed with all listed learning points
 - Option 2: **Remove some** — "Tell me which numbers to remove (e.g. 3, 5)"
