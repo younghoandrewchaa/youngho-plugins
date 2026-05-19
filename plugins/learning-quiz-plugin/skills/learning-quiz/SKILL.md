@@ -39,14 +39,13 @@ Group learning points by topic. Present them as a numbered list with brief expla
 3. **Point title** — one-sentence explanation
 ```
 
-After presenting, ask the user:
+After presenting, use `AskUserQuestion` to let the user choose how to proceed:
 
-> "These are the learning points I extracted. You can:
-> - Remove any by number (e.g. 'remove 3, 5')
-> - Add any I missed
-> - Or confirm to start the quiz
->
-> What would you like to do?"
+- Option 1: **Start the quiz** — proceed with all listed learning points
+- Option 2: **Remove some** — "Tell me which numbers to remove (e.g. 3, 5)"
+- Option 3: **Add more** — "Tell me what I missed"
+
+The user can also type a custom response via "Other". If they choose to remove or add, apply the changes and then proceed straight to the quiz — don't ask again.
 
 **Do NOT proceed to Phase 2 until the user confirms the learning points.**
 
