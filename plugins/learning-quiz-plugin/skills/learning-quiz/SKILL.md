@@ -132,11 +132,19 @@ list, not a grade.
 ### Learning Note
 
 After the focus guide, write a persistent **Learning Note** the user can keep or paste into
-their notes. For **every question the user got wrong**, capture:
+their notes. The note covers the **whole content**, not just the questions — it is a complete
+study summary, with the missed areas deepened.
 
-- the question and the correct answer, and
-- the explanation you gave during feedback for *why* it's correct (and why their pick was a
-  plausible misconception).
+Build it in two passes:
+
+1. **Cover everything first.** For **every confirmed topic**, write a concise summary of the
+   key points worth knowing — the core concepts, defaults, gotchas, and reasoning from the
+   source material. Do this for all topics, regardless of how the user answered. This is the
+   baseline study note.
+2. **Then deepen where the user got it wrong.** For each topic where the user missed a
+   question, add an extra **"Watch out"** sub-section going into more detail: the question and
+   correct answer, *why* it's correct, and why their pick was a plausible misconception. This
+   is where the priming pays off, so make these the richest parts of the note.
 
 Format it as a clean, self-contained markdown block grouped by topic, so it reads well out of
 context:
@@ -144,21 +152,31 @@ context:
 ```
 ## Learning Note
 
+### Topic A
+[Concise summary of the key points for this topic — concepts, defaults, gotchas.]
+
 ### Topic B
+[Concise summary of the key points for this topic.]
+
+**Watch out — you missed this:**
 - **Q: [question]**
   Correct answer: [answer]
   Why: [the explanation given during feedback, including why the chosen distractor was a
   common misconception]
 
 ### Topic C
+[Concise summary of the key points for this topic.]
+
+**Watch out — you missed this:**
 - **Q: [question]**
   Correct answer: [answer]
   Why: [explanation]
 ```
 
-This is the take-away artefact of the priming session — the gaps surfaced and explained,
-ready to reinforce when the user reads. If the user got everything right, say so and list the
-key points reinforced instead.
+This is the take-away artefact of the priming session — a full study summary of the material,
+with the gaps surfaced and explained in extra depth, ready to reinforce when the user reads.
+If the user got everything right, still write the full summary and say no areas need the extra
+"Watch out" detail.
 
 ## Rules
 
@@ -172,7 +190,8 @@ key points reinforced instead.
   useful; never make them feel bad about wrong answers.
 - **Be encouraging, not patronising.** Treat the user as a peer preparing to learn.
 - **Keep feedback concise.** One or two sentences per answer, not a lecture.
-- **Always end with the Learning Note** capturing the wrong-answer explanations.
+- **Always end with the Learning Note.** It must summarise the *whole* content for every
+  topic first, then add deeper "Watch out" detail for the areas the user got wrong.
 - **If the source has no meaningful topics** (e.g. conversation was just a quick file read,
   or the provided content is too brief), say so honestly instead of fabricating trivial
   questions.
