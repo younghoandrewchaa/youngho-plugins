@@ -23,7 +23,7 @@
     },
     {
       "name": "learning-quiz",
-      "description": "Review the current conversation, summarise learning points, and quiz the user with a mix of multiple choice and open-ended questions to verify understanding",
+      "description": "Pre-test the user on a topic before they study it using multiple-choice questions, to prime their reading and surface knowledge gaps, then produce a learning note from the answers",
       "source": "./plugins/learning-quiz-plugin",
       "author": {
         "name": "Youngho Chaa"

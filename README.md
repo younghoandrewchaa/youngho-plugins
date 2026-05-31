@@ -67,21 +67,21 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 
 ## learning-quiz
 
-Summarise learning points and quiz yourself to verify understanding. Works from the current conversation or any content you provide — a block of text, a URL, or a topic. Lets you confirm the list, then runs an interactive quiz with a mix of multiple choice and open-ended questions.
+Pre-test yourself on a topic *before* you study it, to prime your reading and surface knowledge gaps. Based on the **Pre-testing strategy** — attempting questions on unfamiliar material activates prior knowledge and primes attention, so the real information lands far more readily when you read it (it works even when you guess every answer wrong). Works from any content you're about to study — a block of text, a URL, or a topic — or from the current conversation. Every question is multiple choice, and the answers teach.
 
 ### What it does
 
-1. **Extracts learning points** — from the conversation *or* content you paste/link; covers technical concepts, architectural decisions, gotchas, tools, and domain knowledge
-2. **Lets you confirm** — presents a numbered list grouped by topic; you can remove, add, or approve before the quiz starts
-3. **Quizzes you** — generates 1-2 questions per learning point, one at a time, mixing multiple choice (factual recall) and open-ended (conceptual understanding)
-4. **Gives feedback** — immediate feedback after each answer, then a final score with strong areas and topics to revisit
+1. **Confirms the scope** — lists the topics it will quiz on (no answers given away, which would spoil the priming); you can remove, add, or approve before the pre-test starts
+2. **Pre-tests you** — generates 1-2 multiple-choice questions per topic, one at a time, with plausible, misconception-based distractors
+3. **Teaches through feedback** — immediate feedback on every answer explaining *why* it's correct; guessing is encouraged and low scores are expected and useful
+4. **Leaves you a learning note** — a reading-focus guide plus a keepable note capturing every missed question, its correct answer, and the explanation, ready to reinforce when you read
 
 ### Two modes
 
 | Invocation | Source |
 |---|---|
-| `/learning-quiz` | Scans the current conversation |
-| `/learning-quiz <text, URL, or topic>` | Uses the provided content instead |
+| `/learning-quiz <text, URL, or topic>` | Pre-tests you on content you're about to study |
+| `/learning-quiz` | Generates priming questions from the current session's topics |
 
 ### Installation
 
@@ -93,9 +93,9 @@ Summarise learning points and quiz yourself to verify understanding. Works from 
 
 ### Usage
 
-> "quiz me on what I learned"
-> "review this session"
-> "test my understanding"
+> "prime me on <topic> before I read about it"
+> "pre-test me on this article"
+> "quiz me before I read X"
 > "/learning-quiz https://example.com/article"
 > "/learning-quiz [pasted notes or text]"
 
