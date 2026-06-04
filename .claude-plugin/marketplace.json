@@ -36,6 +36,14 @@
       "author": {
         "name": "Youngho Chaa"
       }
+    },
+    {
+      "name": "wikify",
+      "description": "Personal LLM wiki manager: ingest documents, URLs, and pasted content into a structured knowledge base. Remembers your wiki directory across sessions.",
+      "source": "./plugins/wikify-plugin",
+      "author": {
+        "name": "Youngho Chaa"
+      }
     }
   ]
 }

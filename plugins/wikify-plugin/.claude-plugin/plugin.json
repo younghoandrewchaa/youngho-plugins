@@ -1,0 +1,18 @@
+{
+  "name": "wikify",
+  "description": "Personal LLM wiki manager: ingest documents, URLs, and pasted content into a structured knowledge base. Remembers your wiki directory across sessions.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Youngho Chaa"
+  },
+  "homepage": "https://github.com/younghoandrewchaa/yh-plugins",
+  "repository": "https://github.com/younghoandrewchaa/yh-plugins",
+  "license": "MIT",
+  "keywords": [
+    "wiki",
+    "knowledge-base",
+    "ingest",
+    "notes",
+    "personal-knowledge-management"
+  ]
+}
