@@ -30,10 +30,10 @@ choice** and the goal of feedback is to *teach*, not to score.
 
 This skill supports two modes based on whether the user provides additional text:
 
-- **With content** (e.g. `/learning-quiz <pasted text, URL, or topic the user is about to study>`):
+- **With content** (e.g. `/learn-kit:learning-quiz <pasted text, URL, or topic the user is about to study>`):
   The primary pre-test flow. Read, fetch, or interpret the provided content first, then
   generate priming questions from it to focus the user's upcoming reading.
-- **No additional text** (e.g. just `/learning-quiz`): Scan the current conversation context
+- **No additional text** (e.g. just `/learn-kit:learning-quiz`): Scan the current conversation context
   and generate priming questions from the topics discussed, still framed as teaching through
   feedback.
 

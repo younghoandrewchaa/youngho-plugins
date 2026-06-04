@@ -65,39 +65,45 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 
 ---
 
-## learning-quiz
+## learn-kit
+
+A learning toolkit with two skills: a pre-testing quiz to prime your reading, and a personal wiki manager.
+
+### `/learn-kit:learning-quiz`
 
 Pre-test yourself on a topic *before* you study it, to prime your reading and surface knowledge gaps. Based on the **Pre-testing strategy** — attempting questions on unfamiliar material activates prior knowledge and primes attention, so the real information lands far more readily when you read it (it works even when you guess every answer wrong). Works from any content you're about to study — a block of text, a URL, or a topic — or from the current conversation. Every question is multiple choice, and the answers teach.
-
-### What it does
 
 1. **Confirms the scope** — lists the topics it will quiz on (no answers given away, which would spoil the priming); you can remove, add, or approve before the pre-test starts
 2. **Pre-tests you** — generates 1-2 multiple-choice questions per topic, one at a time, with plausible, misconception-based distractors
 3. **Teaches through feedback** — immediate feedback on every answer explaining *why* it's correct; guessing is encouraged and low scores are expected and useful
 4. **Leaves you a learning note** — a reading-focus guide plus a keepable note capturing every missed question, its correct answer, and the explanation, ready to reinforce when you read
 
-### Two modes
+### `/learn-kit:wikify`
 
-| Invocation | Source |
-|---|---|
-| `/learning-quiz <text, URL, or topic>` | Pre-tests you on content you're about to study |
-| `/learning-quiz` | Generates priming questions from the current session's topics |
+Personal LLM wiki manager. Ingest documents, URLs, and pasted content into a structured knowledge base. On first use, asks where your wiki lives (or should be created) and remembers it across sessions.
+
+1. **Discovers your wiki** — checks memory for a stored wiki path; if not found, asks you where to create one
+2. **Bootstraps if needed** — creates the full directory structure, index, log, and schema on first use
+3. **Ingests sources** — reads the content, writes a summary page, extracts entities, updates the index and log
+4. **Queries your wiki** — answers questions by reading and synthesising from your wiki pages
+5. **Lints for health** — checks for contradictions, orphan pages, and missing cross-references
 
 ### Installation
 
 ```
 /plugin marketplace add younghoandrewchaa/yh-plugins
-/plugin install learning-quiz@yh-plugins
+/plugin install learn-kit@yh-plugins
 /reload-plugins
 ```
 
 ### Usage
 
+> "/learn-kit:learning-quiz" — pre-test yourself before studying a topic
 > "prime me on <topic> before I read about it"
-> "pre-test me on this article"
 > "quiz me before I read X"
-> "/learning-quiz https://example.com/article"
-> "/learning-quiz [pasted notes or text]"
+> "/learn-kit:wikify" — open your wiki and ingest a source
+> "add this to my wiki"
+> "ingest this document"
 
 ---
 

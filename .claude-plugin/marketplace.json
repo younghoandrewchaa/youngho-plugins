@@ -22,9 +22,9 @@
       }
     },
     {
-      "name": "learning-quiz",
-      "description": "Pre-test the user on a topic before they study it using multiple-choice questions, to prime their reading and surface knowledge gaps, then produce a learning note from the answers",
-      "source": "./plugins/learning-quiz-plugin",
+      "name": "learn-kit",
+      "description": "Learning toolkit: pre-test yourself on topics before studying to prime your reading and surface knowledge gaps, and manage a personal LLM wiki for ingesting documents, URLs, and content into a structured knowledge base",
+      "source": "./plugins/learn-kit-plugin",
       "author": {
         "name": "Youngho Chaa"
       }
@@ -33,14 +33,6 @@
       "name": "my-day",
       "description": "Plan and reflect on your day, week, and month — answers polished into natural British English, with past learnings surfaced as advice",
       "source": "./plugins/my-day-plugin",
-      "author": {
-        "name": "Youngho Chaa"
-      }
-    },
-    {
-      "name": "wikify",
-      "description": "Personal LLM wiki manager: ingest documents, URLs, and pasted content into a structured knowledge base. Remembers your wiki directory across sessions.",
-      "source": "./plugins/wikify-plugin",
       "author": {
         "name": "Youngho Chaa"
       }

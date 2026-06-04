@@ -1,0 +1,26 @@
+{
+  "name": "learn-kit",
+  "description": "Learning toolkit: pre-test yourself on topics before studying to prime your reading and surface knowledge gaps, and manage a personal LLM wiki for ingesting documents, URLs, and content into a structured knowledge base",
+  "version": "1.0.0",
+  "author": {
+    "name": "Youngho Chaa"
+  },
+  "homepage": "https://github.com/younghoandrewchaa/yh-plugins",
+  "repository": "https://github.com/younghoandrewchaa/yh-plugins",
+  "license": "MIT",
+  "keywords": [
+    "learning",
+    "quiz",
+    "pre-testing",
+    "priming",
+    "active-recall",
+    "review",
+    "knowledge-check",
+    "session-review",
+    "wiki",
+    "knowledge-base",
+    "ingest",
+    "notes",
+    "personal-knowledge-management"
+  ]
+}

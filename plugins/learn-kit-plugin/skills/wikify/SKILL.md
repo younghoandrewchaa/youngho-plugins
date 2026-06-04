@@ -1,6 +1,6 @@
 ---
 name: wikify
-description: Ingest a source into your personal LLM wiki. On first use, asks where your wiki lives (or should be created) and remembers it. Use when you want to add a document, file path, or pasted content to your wiki, or when the user says /wikify.
+description: Ingest a source into your personal LLM wiki. On first use, asks where your wiki lives (or should be created) and remembers it. Use when you want to add a document, file path, or pasted content to your wiki, or when the user says /learn-kit:wikify.
 ---
 
 # Wikify
@@ -262,7 +262,7 @@ On first use of this wiki (when `index.md` doesn't exist yet):
 
 ## Example Trigger Phrases
 
-> "/wikify"
+> "/learn-kit:wikify"
 > "Add this to my wiki"
 > "Ingest this document"
 > "Save this to the wiki"
