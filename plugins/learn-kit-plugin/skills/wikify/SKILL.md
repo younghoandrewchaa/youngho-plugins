@@ -250,6 +250,26 @@ On first use of this wiki (when `index.md` doesn't exist yet):
 
 ---
 
+## Git Sync (run after every file creation or update)
+
+After completing any operation that writes or modifies files in the wiki (Ingest, Lint, Query when a page is saved):
+
+1. **Check for git**: run `git -C <wiki_path> rev-parse --is-inside-work-tree` (or equivalent). If the exit code is non-zero the directory is not tracked by git — skip the remaining steps and carry on.
+
+2. **Stage all changes**: `git -C <wiki_path> add -A`
+
+3. **Compose a commit message** that summarises what changed — e.g. `"ingest: <Source Title>"`, `"lint: <N> issues fixed"`, `"query: filed <page-slug>"`, or `"init: wiki bootstrapped"`.
+
+4. **Commit**: `git -C <wiki_path> commit -m "<message>"`. If there is nothing to commit (working tree clean) skip to step 6.
+
+5. **Conflict handling**: if a merge conflict arises at any point, spawn a sub-agent with the full conflict context and instruct it to resolve the conflict, preserving the wiki's semantic intent. Never abort or reset — always resolve and commit.
+
+6. **Push**: `git -C <wiki_path> push`. If the push is rejected (non-fast-forward), pull with rebase first (`git -C <wiki_path> pull --rebase`), resolve any conflicts as above, then push again.
+
+7. Confirm to the user: "Changes synced to git." (one line, no extra detail unless there was a conflict).
+
+---
+
 ## Red Flags
 
 **Never** hardcode the wiki path — always read from memory and confirm on disk before proceeding.
