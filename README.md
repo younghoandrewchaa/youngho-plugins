@@ -67,7 +67,7 @@ A British English Language Coach. Paste any text and get a natural, fluent rewri
 
 ## learn-kit
 
-A learning toolkit with two skills: a pre-testing quiz to prime your reading, and a personal wiki manager.
+A learning toolkit with three skills: a pre-testing quiz to prime your reading, a recall quiz over your personal wiki to fight forgetting, and a personal wiki manager.
 
 ### `/learn-kit:learning-quiz`
 
@@ -77,6 +77,15 @@ Pre-test yourself on a topic *before* you study it, to prime your reading and su
 2. **Pre-tests you** — generates 1-2 multiple-choice questions per topic, one at a time, with plausible, misconception-based distractors
 3. **Teaches through feedback** — immediate feedback on every answer explaining *why* it's correct; guessing is encouraged and low scores are expected and useful
 4. **Leaves you a learning note** — a reading-focus guide plus a keepable note capturing every missed question, its correct answer, and the explanation, ready to reinforce when you read
+
+### `/learn-kit:wiki-quiz`
+
+Quiz yourself on the contents of your personal wiki to remember and deepen what you've already learned. The post-study counterpart to `learning-quiz` — based on the **testing effect** and **active recall**: retrieving a fact from memory strengthens it far more than re-reading, and revisiting wiki content after time has passed interrupts the forgetting curve. Samples 10 questions broadly across your whole wiki. Every question is multiple choice, and the answers reinforce.
+
+1. **Opens your wiki** — finds your wiki path (the same one `wikify` maintains) and reads the index and pages; if the wiki isn't set up, it points you to `/learn-kit:wikify` first
+2. **Samples broadly** — draws 10 questions across sources, pages, and syntheses for whole-wiki coverage, and tells you which areas it will span
+3. **Quizzes one at a time** — multiple-choice questions with plausible, confusion-based distractors and immediate reinforcing feedback explaining *why*
+4. **Leaves you a revision plan** — a "worth revisiting" list pointing back to the relevant wiki pages, plus a keepable learning note refreshing the material and deepening the spots you missed
 
 ### `/learn-kit:wikify`
 
@@ -101,6 +110,8 @@ Personal LLM wiki manager. Ingest documents, URLs, and pasted content into a str
 > "/learn-kit:learning-quiz" — pre-test yourself before studying a topic
 > "prime me on <topic> before I read about it"
 > "quiz me before I read X"
+> "/learn-kit:wiki-quiz" — quiz yourself on your wiki to remember what you've learned
+> "help me remember what's in my wiki"
 > "/learn-kit:wikify" — open your wiki and ingest a source
 > "add this to my wiki"
 > "ingest this document"

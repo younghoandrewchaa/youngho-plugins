@@ -1,7 +1,7 @@
 {
   "name": "learn-kit",
-  "description": "Learning toolkit: pre-test yourself on topics before studying to prime your reading and surface knowledge gaps, and manage a personal LLM wiki for ingesting documents, URLs, and content into a structured knowledge base",
-  "version": "1.0.0",
+  "description": "Learning toolkit: pre-test yourself on topics before studying to prime your reading and surface knowledge gaps, quiz yourself on your personal wiki to remember what you've learned, and manage a personal LLM wiki for ingesting documents, URLs, and content into a structured knowledge base",
+  "version": "1.1.0",
   "author": {
     "name": "Youngho Chaa"
   },
@@ -14,6 +14,8 @@
     "pre-testing",
     "priming",
     "active-recall",
+    "retrieval-practice",
+    "spaced-repetition",
     "review",
     "knowledge-check",
     "session-review",
