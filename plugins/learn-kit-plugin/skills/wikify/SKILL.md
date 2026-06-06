@@ -29,7 +29,7 @@ Save the entered path to memory as `wikify_wiki_path`. Then read `<path>/CLAUDE.
 
 ## Step 2a — Wiki exists
 
-Read `<wiki_path>/CLAUDE.md`. This is the authoritative schema and workflow for this wiki. Follow its **Ingest** instructions from Step 3 onwards — do not substitute your own logic.
+Read `<wiki_path>/CLAUDE.md`. This is the authoritative schema and workflow for this wiki. Then continue to **Step 2c** to sync from the remote before following its **Ingest** instructions from Step 3 onwards — do not substitute your own logic.
 
 ---
 
@@ -66,7 +66,23 @@ _(none yet)_
 5. Create `<wiki_path>/CLAUDE.md` using the **canonical template** in the section below.
 6. Tell the user: "Your wiki has been created at `<wiki_path>`. Ready to ingest your first source."
 
-Then continue to Step 3.
+Then continue to Step 2c.
+
+---
+
+## Step 2c — Sync from remote first (git-based wikis)
+
+Before reading or writing any wiki pages, pull the latest from the remote so you work against current content:
+
+1. **Check for git**: run `git -C <wiki_path> rev-parse --is-inside-work-tree`. If the exit code is non-zero the wiki is not a git repo — skip this step entirely and continue to Step 3.
+
+2. **Check for a remote**: run `git -C <wiki_path> remote`. If there is no remote configured, skip the pull and continue.
+
+3. **Pull with rebase**: `git -C <wiki_path> pull --rebase`.
+   - If the working tree has uncommitted local changes that block the rebase, stash them first (`git -C <wiki_path> stash`), pull, then pop the stash (`git -C <wiki_path> stash pop`).
+   - If a merge/rebase conflict arises, resolve it preserving the wiki's semantic intent (spawn a sub-agent with full conflict context if needed). Never abort or reset.
+
+4. Continue to Step 3.
 
 ---
 
@@ -252,6 +268,8 @@ On first use of this wiki (when `index.md` doesn't exist yet):
 
 ## Git Sync (run after every file creation or update)
 
+> The pre-operation pull happens in **Step 2c**; this section handles the commit + push afterwards.
+
 After completing any operation that writes or modifies files in the wiki (Ingest, Lint, Query when a page is saved):
 
 1. **Check for git**: run `git -C <wiki_path> rev-parse --is-inside-work-tree` (or equivalent). If the exit code is non-zero the directory is not tracked by git — skip the remaining steps and carry on.
@@ -279,6 +297,8 @@ After completing any operation that writes or modifies files in the wiki (Ingest
 **Never** write to `raw/` — that directory is for immutable user-provided source documents only.
 
 **Never** overwrite an existing `CLAUDE.md` — only create it when the file is genuinely absent.
+
+**Never** start an ingest/query/lint on a git-based wiki without first pulling from the remote (Step 2c) — stale local pages cause avoidable merge conflicts and outdated analysis.
 
 ## Example Trigger Phrases
 
