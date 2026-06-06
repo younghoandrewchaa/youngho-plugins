@@ -85,7 +85,8 @@ Quiz yourself on the contents of your personal wiki to remember and deepen what 
 1. **Opens your wiki** — finds your wiki path (the same one `wikify` maintains) and reads the index and pages; if the wiki isn't set up, it points you to `/learn-kit:wikify` first
 2. **Samples broadly** — draws 10 questions across sources, pages, and syntheses for whole-wiki coverage, and tells you which areas it will span
 3. **Quizzes one at a time** — multiple-choice questions with plausible, confusion-based distractors and immediate reinforcing feedback explaining *why*
-4. **Leaves you a revision plan** — a "worth revisiting" list pointing back to the relevant wiki pages, plus a keepable learning note refreshing the material and deepening the spots you missed
+4. **Leaves you a revision plan** — a strong/weak-areas summary and a "worth revisiting" list pointing back to the relevant wiki pages, plus a keepable learning note refreshing the material and deepening the spots you missed
+5. **Tracks your progress** — records each result with a timestamp to `quiz-history/history.jsonl` and regenerates a standalone `report.html` with a score-over-time chart, a session table, and a per-topic strength summary so you can see persistent weak spots (and offers to open it)
 
 ### `/learn-kit:wikify`
 
